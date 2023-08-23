@@ -16,3 +16,8 @@ jobs:
 
       - name: build android sample
         run: dotnet build -c Release android
+
+      - name: upload build
+        uses: actions/upload-artifact@v3
+        with:
+          path: android/bin/Release/net7.0-android/com.raylibcs.android-Signed.apk
