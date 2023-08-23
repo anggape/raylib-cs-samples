@@ -2,7 +2,7 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  prepare:
+  build-android:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
