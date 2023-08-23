@@ -1,0 +1,18 @@
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3
+
+      - name: restore workload
+        run: |
+          dotnet workload restore \
+            --project android/android.csproj \
+            --source https://api.nuget.org/v3/index.json
+
+      - name: build android sample
+        run: dotnet build -c Release android
